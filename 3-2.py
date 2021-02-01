@@ -19,3 +19,11 @@ while True:
       break
     
 print(result)
+
+#수열을 이용해서 풀기
+first_count = M // (K+1) 
+second_count = first_count # 두 번째로 큰 수가 더해지는 횟수
+first_count *= K
+first_count += M % (K+1) #가장 큰 수가 더해지는 횟수
+result2 = num_list[0] * first_count + num_list[1] * second_count
+print(result2)
