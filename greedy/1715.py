@@ -1,15 +1,20 @@
 # https://www.acmicpc.net/problem/1715 카드 정렬하기
 # 골드문제...우선순위 큐를 이용해야함..다시풀기
+import heapq
+import sys
+
 n = int(input())
 card = []
 for _ in range(n):
-    card.append(int(input()))
+    heapq.heappush(card, int(sys.stdin.readline()))
+
 if len(card) > 1:
-    card.sort()
-    result = []
-    result.append(card[0] + card[1])
-    for i in range(2, n):
-        result.append(result[i-2] + card[i])
-    print(sum(result))
+    result = 0
+    while len(card) > 1:
+        temp_1 = heapq.heappop(card)  # 가장 작은 덱
+        temp_2 = heapq.heappop(card)  # 두번째로 작은 덱
+        result += (temp_1 + temp_2)
+        heapq.heappush(card, temp_1 + temp_2)
+    print(result)
 else:
-    print(card[0])
+    print(0)
