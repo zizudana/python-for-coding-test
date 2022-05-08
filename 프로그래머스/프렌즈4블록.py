@@ -22,7 +22,6 @@ while True:
           remove[i][j] = 1
           for d in range(3):
             remove[i+dx[d]][j+dy[d]] = 1
-
   cnt = 0
   for i in range(m):
     cnt += sum(remove[i])

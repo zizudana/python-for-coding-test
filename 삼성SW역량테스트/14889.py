@@ -4,8 +4,8 @@ import sys
 input = sys.stdin.readline
 
 n = int(input()) # n명(짝수)
-s_list = [list(map(int, input().split())) for _ in range(n)]
-s = [i for i in range(n)]
+s_list = [list(map(int, input().split())) for _ in range(n)] # 능력치 배열
+s = [i for i in range(n)] # 팀 조합을 위한 배열
 teams = []
 for team in list(combinations(s, n//2)):
   teams.append(team)
